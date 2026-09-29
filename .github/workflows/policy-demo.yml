@@ -1,0 +1,19 @@
+name: Actions Policy Demo
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demonstrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show allowed execution
+        run: |
+          echo "The workflow reached a runner."
+          echo "Trigger: $GITHUB_EVENT_NAME"
+          echo "Actor: $GITHUB_ACTOR"
+          echo "No checkout, secrets, or deployment required."
